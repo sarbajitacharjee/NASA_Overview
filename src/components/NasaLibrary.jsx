@@ -5,12 +5,8 @@ function NasaLibrary() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const API_KEY = import.meta.env.VITE_NASA_API_KEY;
-
     const fetchLibrary = async () => {
-      const res = await axios.get(
-        `https://images-api.nasa.gov/search?q=earth`
-      );
+      const res = await axios.get(`https://images-api.nasa.gov/search?q=earth`);
       setImages(res.data.collection.items.slice(0, 6));
     };
     fetchLibrary();
@@ -21,7 +17,17 @@ function NasaLibrary() {
       {images.map((item, index) => (
         <div key={index} className="border rounded-lg overflow-hidden shadow-lg">
           <img src={item.links?.[0]?.href} alt="NASA Image" className="w-full h-48 object-cover" />
-          <p className="p-2 text-center">{item.data[0].title}</p>
+          <p className="p-2 text-center font-semibold">{item.data[0].title}</p>
+          <div className="text-center mb-2">
+            <a 
+              href={`https://images.nasa.gov/details/${item.data[0].nasa_id}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              View on NASA Website
+            </a>
+          </div>
         </div>
       ))}
     </div>
