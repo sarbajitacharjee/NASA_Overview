@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react"; // Icons for mobile menu
 import Apod from "./components/Apod";
 import MarsRover from "./components/MarsRover";
+import ISSLiveTracker from "./components/ISSLiveTracker";
+import EarthImages from "./components/EarthImages";
 import MarsRoverPhotos from "./components/MarsRoverPhotos";
 import Neos from "./components/Neos";
 import NasaLibrary from "./components/NasaLibrary";
@@ -36,6 +38,9 @@ function App() {
               <Link to="/MarsRoverPhotos" className="block px-4 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>MarsRoverPhotos</Link>
             </li>
             <li className="py-2 md:py-0">
+              <Link to="/ISSLiveTracker" className="block px-4 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>ISSLiveTracker</Link>
+            </li>
+            <li className="py-2 md:py-0">
               <Link to="/mars" className="block px-4 hover:text-red-400" onClick={() => setIsMenuOpen(false)}>Mars Rover</Link>
             </li>
             <li className="py-2 md:py-0">
@@ -44,6 +49,9 @@ function App() {
             <li className="py-2 md:py-0">
               <Link to="/library" className="block px-4 hover:text-blue-400" onClick={() => setIsMenuOpen(false)}>NASA Library</Link>
             </li>
+            <li className="py-2 md:py-0">
+              <Link to="/EarthImages" className="block px-4 hover:text-blue-400" onClick={() => setIsMenuOpen(false)}>EarthImages Library</Link>
+            </li>
           </ul>
         </nav>
 
@@ -51,6 +59,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Apod />} />
           <Route path="/mars" element={<MarsRover />} />
+          <Route path="/ISSLiveTracker" element={<ISSLiveTracker />} />
+          <Route path="/EarthImages" element={<EarthImages />} />
           <Route path="/MarsRoverPhotos" element={<MarsRoverPhotos />} />
           <Route path="/neos" element={<Neos />} />
           <Route path="/library" element={<NasaLibrary />} />
