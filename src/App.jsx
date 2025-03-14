@@ -8,6 +8,7 @@ import EarthImages from "./components/EarthImages";
 import MarsRoverPhotos from "./components/MarsRoverPhotos";
 import Neos from "./components/Neos";
 import NasaLibrary from "./components/NasaLibrary";
+import SpaceWeather from "./components/SpaceWeather";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +28,7 @@ function App() {
 
           {/* Nav Links */}
           <ul
-            className={`absolute md:static left-0 top-16 w-full bg-gray-800 md:bg-transparent p-5 md:p-0 md:flex md:space-x-6 text-lg rounded-lg transition-all duration-300 ${
+            className={`absolute md:static left-0 top-16 w-100 md:w-full m-1 bg-gray-800 md:bg-transparent  border border-white md:border-none p-5 md:p-0 md:flex md:space-x-6 text-lg rounded-lg transition-all duration-300 ${
               isMenuOpen ? "block" : "hidden md:flex"
             }`}
           >
@@ -52,6 +53,9 @@ function App() {
             <li className="py-2 md:py-0">
               <Link to="/EarthImages" className="block px-4 hover:text-blue-400" onClick={() => setIsMenuOpen(false)}>EarthImages Library</Link>
             </li>
+            <li className="py-2 md:py-0">
+              <Link to="/SpaceWeather" className="block px-4 hover:text-blue-400" onClick={() => setIsMenuOpen(false)}>SpaceWeather</Link>
+            </li>
           </ul>
         </nav>
 
@@ -63,6 +67,7 @@ function App() {
           <Route path="/EarthImages" element={<EarthImages />} />
           <Route path="/MarsRoverPhotos" element={<MarsRoverPhotos />} />
           <Route path="/neos" element={<Neos />} />
+          <Route path="/SpaceWeather" element={<SpaceWeather />} />
           <Route path="/library" element={<NasaLibrary />} />
         </Routes>
       </div>
